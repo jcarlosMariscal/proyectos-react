@@ -1,26 +1,24 @@
-// import { useState } from "react";
-import { CardHomeComponent } from "../components/CardHomeComponent";
-const projects = [
-  {
-    name: "Poke API",
-    description:
-      "Aplicación básica para consumir una API con React y aplicar estilos con Tailwind.",
-    direction: "PokePage",
-  },
-  {
-    name: "Poke fs",
-    description:
-      "Aplicación básica para consumir una API con React y aplicar estilos con Tailwind.",
-    direction: "PokePage",
-  },
-];
-
+import { HomeCardComponent } from "../components/HomeCardComponent";
 export const HomePage = () => {
   return (
-    <div className="bg-gray-200 min-h-screen flex py-3 px-[2rem] justify-center align-items-center flex-wrap gap-2">
-      {projects.map((el, index) => (
-        <CardHomeComponent key={index} person={el} />
-      ))}
-    </div>
+    <>
+      <div className="bg-gray-200 h-screen relative">
+        <HomeCardComponent
+          customCSS="bg-slate-300 xl:w-[45rem] xl:h-[25rem] top-[15rem] right-10 sm:w-[30rem] sm:h-auto"
+          cardSize="lg"
+          image="image1.png"
+        />
+        <HomeCardComponent
+          customCSS="bg-slate-200 w-[50rem] h-[25rem] top-10 left-20"
+          cardSize="lg"
+          image="image2.png"
+        />
+        <HomeCardComponent
+          customCSS="bg-white w-[35rem] h-[22rem] bottom-20 right-[15rem]"
+          cardSize="sm"
+          image="image3.png"
+        />
+      </div>
+    </>
   );
 };

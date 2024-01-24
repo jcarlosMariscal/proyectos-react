@@ -3,6 +3,23 @@
 @tailwind utilities;
 
 .custom-flex-end {
-  display: flex !important;
-  justify-content: flex-end !important;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.custom {
+  /* background: rgba(0, 0, 0, 0.4);
+  opacity: 0.8;
+  user-select: none; */
+}
+
+.jeje::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 2.5rem;
 }
