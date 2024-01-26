@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { CursorArrowRippleIcon } from "@heroicons/react/24/solid";
 import { FeatureIconComponent } from "../pure/FeatureIconComponent";
 import { ButtonComponent } from "../pure/ButtonComponent";
 
@@ -26,17 +27,29 @@ export const HomeCardComponent = ({
   title,
   description,
   icons,
+  changeCard,
+  orderCardCSS,
 }) => {
   const { textSize, flex, imgSize } = sizeCard(cardSize);
-  console.log(icons);
+  const { zIndex, cardBg, cardUp } = orderCardCSS;
+  const getColorBtn = (cardUp) =>
+    cardUp
+      ? "bg-blue-400 text-white cursor-auto shadow-lg shadow-blue-200/100"
+      : "bg-gray-100 text-gray-600 hover:bg-gray-600 hover:text-gray-100 shadow-lg shadow-gray-200/100";
   return (
     <div
-      className={`text-black p-3 rounded-custom shadow-md absolute select-none shadow-slate-400/60 ${customCSS}`}
+      className={`text-black p-3 rounded-custom sm:absolute shadow-slate-400/100 ${customCSS} ${zIndex} ${cardBg}`}
     >
       <div className="m-5">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
           <h2 className={`${textSize} font-bold`}>{title}</h2>
-          {cardSize !== "sm" && <ButtonComponent text="Visite the Page" />}
+          {cardSize !== "sm" && (
+            <ButtonComponent
+              text="Visite the Page"
+              color="bg-gray-800 hover:bg-gray-900 text-white"
+              size="w-full sm:w-max"
+            />
+          )}
         </div>
         {cardSize !== "sm" && (
           <p className="mt-5 text-justify">{description}</p>
@@ -66,11 +79,16 @@ export const HomeCardComponent = ({
         {cardSize === "sm" && (
           <div className="flex sm:hidden xl:flex flex-wrap items-center justify-between m-0">
             <p className="mt-5 text-justify">{description}</p>
-            {/* <div className="w-1/4">
-              <ButtonComponent text="Visite the Page" />
-            </div> */}
           </div>
         )}
+      </div>
+      <div className="hidden md:block absolute sm:bottom-4 sm:left-0">
+        <ButtonComponent
+          text={<CursorArrowRippleIcon className="h-6 w-6" />}
+          color={getColorBtn(cardUp)}
+          size="w-10 h-10"
+          handleClick={changeCard}
+        />
       </div>
     </div>
   );
@@ -82,4 +100,6 @@ HomeCardComponent.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   icons: PropTypes.array.isRequired,
+  changeCard: PropTypes.func.isRequired,
+  orderCardCSS: PropTypes.object.isRequired,
 };

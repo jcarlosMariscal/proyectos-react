@@ -1,11 +1,17 @@
 import PropTypes from "prop-types";
-export const ButtonComponent = ({ text }) => {
+export const ButtonComponent = ({ text, color, size, handleClick }) => {
   return (
-    <button className="bg-gray-800 text-white p-2 rounded-custom hover:bg-gray-900 w-full sm:w-max">
+    <button
+      className={`${color} p-2 rounded-custom ${size} flex justify-center items-center`}
+      onClick={handleClick}
+    >
       {text}
     </button>
   );
 };
 ButtonComponent.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  color: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired,
+  handleClick: PropTypes.func,
 };

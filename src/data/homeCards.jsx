@@ -98,8 +98,8 @@ export const homeCards = [
     id: 1,
     cardSize: "lg",
     css: {
-      size: "w-[21rem] xl:w-[45rem] xl:h-[25rem] sm:w-[30rem] lg:h-[25rem]",
-      position: "bottom-[5rem] right-2 md:top-[15rem] md:right-10",
+      size: "w-11/12 xl:w-[45rem] xl:h-[25rem] sm:w-[30rem] lg:h-[25rem] 2xl:w-[60rem] 2xl:h-[30rem]",
+      position: "md:top-[15rem] md:right-10 lg:top-[12rem] 2xl:top-[25rem]",
       color: "bg-slate-300",
     },
     content: {
@@ -134,14 +134,14 @@ export const homeCards = [
         text: "Lorem ipsum dolor sit amet.",
       },
     ],
-    active: false,
+    order: 10,
   },
   {
     id: 2,
     cardSize: "lg",
     css: {
-      size: "w-[22rem] xl:w-[45rem] xl:h-[25rem] sm:w-[30rem] sm:h-auto",
-      position: "top-5 left-2 md:top-10 md:left-20",
+      size: "w-11/12 xl:w-[45rem] xl:h-[25rem] sm:w-[30rem] sm:h-auto 2xl:w-[60rem] 2xl:h-[30rem]",
+      position: "md:top-10 md:left-20",
       color: "bg-slate-200",
     },
     content: {
@@ -164,15 +164,15 @@ export const homeCards = [
         text: "Lorem ipsum dolor sit amet.",
       },
     ],
-    active: false,
+    order: 20,
   },
   {
     id: 3,
     cardSize: "sm",
     css: {
-      size: "w-[19rem] h-auto sm:w-[25rem] sm:h-auto md:w-[35rem] md:h-[22rem]",
+      size: "w-11/12 h-auto sm:w-[25rem] sm:h-auto md:w-[35rem] md:h-[22rem] 2xl:w-[60rem] 2xl:h-[25rem]",
       position:
-        "top-[15rem] right-[1rem] sm:bottom-20 sm:right-[10rem] md:top-[10rem] md:right-[25rem]",
+        "sm:bottom-20 sm:right-[10rem] md:top-[10rem] md:right-[5rem] lg:left-[15rem] xl:left-[20rem] 2xl:left-[30rem] 2xl:top-[15rem]",
       color: "bg-white",
     },
     content: {
@@ -207,6 +207,6 @@ export const homeCards = [
         text: "",
       },
     ],
-    active: true,
+    order: 30,
   },
 ];
