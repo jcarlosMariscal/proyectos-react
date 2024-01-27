@@ -2,7 +2,20 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      transitionDuration: {
+        5000: "5000ms",
+      },
+      keyframes: {
+        orderCard: {
+          "0%, 100%": { transform: "opacity(0)" },
+          "50%": { transform: "opacity(1)" },
+        },
+      },
+      animation: {
+        example2: "orderCard 2s ease-in-out",
+      },
+    },
     borderRadius: {
       none: "0",
       sm: "0.125rem",

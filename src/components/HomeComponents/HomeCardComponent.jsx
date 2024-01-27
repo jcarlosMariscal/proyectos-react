@@ -38,7 +38,7 @@ export const HomeCardComponent = ({
       : "bg-gray-100 text-gray-600 hover:bg-gray-600 hover:text-gray-100 shadow-lg shadow-gray-200/100";
   return (
     <div
-      className={`text-black p-3 rounded-custom sm:absolute shadow-slate-400/100 ${customCSS} ${zIndex} ${cardBg}`}
+      className={`text-black p-3 rounded-custom sm:absolute shadow-gray-400/100 ${customCSS} ${zIndex} ${cardBg} transition-colors duration-500 ease-out`}
     >
       <div className="m-5">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
@@ -46,7 +46,7 @@ export const HomeCardComponent = ({
           {cardSize !== "sm" && (
             <ButtonComponent
               text="Visite the Page"
-              color="bg-gray-800 hover:bg-gray-900 text-white"
+              color="bg-gray-700 hover:bg-gray-950 text-white"
               size="w-full sm:w-max"
             />
           )}
