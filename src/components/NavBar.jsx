@@ -13,8 +13,8 @@ export const NavBar = () => {
     { name: "Home", to: "/", current: location.pathname === "/" },
     {
       name: "App Pokemon",
-      to: "/poke-api",
-      current: location.pathname === "/poke-api",
+      to: "/pokedex",
+      current: location.pathname === "/pokedex",
     },
   ];
   return (

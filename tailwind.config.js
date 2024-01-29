@@ -7,13 +7,13 @@ export default {
         5000: "5000ms",
       },
       keyframes: {
-        orderCard: {
-          "0%, 100%": { transform: "opacity(0)" },
-          "50%": { transform: "opacity(1)" },
+        movePokemon: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(.1rem)" },
         },
       },
       animation: {
-        example2: "orderCard 2s ease-in-out",
+        movePokemon: "movePokemon 1s ease-in-out infinite",
       },
     },
     borderRadius: {
