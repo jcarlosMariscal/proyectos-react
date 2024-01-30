@@ -1,20 +1,6 @@
 import { useEffect, useState } from "react";
 import { HomeCardComponent } from "../components/HomeComponents/HomeCardComponent";
-import { homeCards as cards } from "../data/homeCards";
-
-const orderCardCSS = [
-  {
-    zIndex: "z-10",
-    cardBg: "bg-white bg-rgba-dark-5 shadow-sm",
-    cardUp: false,
-  },
-  {
-    zIndex: "z-20",
-    cardBg: "bg-white bg-rgba-dark-3 shadow-md",
-    cardUp: false,
-  },
-  { zIndex: "z-30", cardBg: "bg-white shadow-lg", cardUp: true },
-];
+import { homeCards as cards, orderCardCSS } from "../data/homeCards";
 
 export const HomePage = () => {
   const [currentCards] = useState(cards);

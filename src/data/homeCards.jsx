@@ -210,3 +210,17 @@ export const homeCards = [
     order: 30,
   },
 ];
+
+export const orderCardCSS = [
+  {
+    zIndex: "z-10",
+    cardBg: "bg-white bg-rgba-dark-5 shadow-sm",
+    cardUp: false,
+  },
+  {
+    zIndex: "z-20",
+    cardBg: "bg-white bg-rgba-dark-3 shadow-md",
+    cardUp: false,
+  },
+  { zIndex: "z-30", cardBg: "bg-white shadow-lg", cardUp: true },
+];

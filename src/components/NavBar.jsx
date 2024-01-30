@@ -21,7 +21,7 @@ export const NavBar = () => {
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 h-[10vh]">
             {/* <div className="relative flex h-16 items-center justify-between custom-flex-end"> */}
             <div className="relative flex h-16 items-center !justify-around">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">

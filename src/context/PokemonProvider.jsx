@@ -53,7 +53,9 @@ export const PokemonProvider = ({ children }) => {
     getGlobalPokemons();
   }, []);
   return (
-    <PokemonContext.Provider value={{ allPokemons, globalPokemons }}>
+    <PokemonContext.Provider
+      value={{ allPokemons, globalPokemons, getPokemonById, loading }}
+    >
       {children}
     </PokemonContext.Provider>
   );
