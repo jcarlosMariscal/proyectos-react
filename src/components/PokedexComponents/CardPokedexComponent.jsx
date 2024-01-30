@@ -4,7 +4,7 @@ import { colours, secondaryColor } from "../../helpers/colorsPokemon";
 import { resetString } from "../../helpers/resetString";
 import { TypePokemonComponent } from "../pure/TypePokemonComponent";
 
-export const CardPokeComponent = ({ pokemon }) => {
+export const CardPokedexComponent = ({ pokemon }) => {
   const primary = colours[pokemon.types[0].type.name];
   const secondary = secondaryColor(primary);
   return (
@@ -36,6 +36,6 @@ export const CardPokeComponent = ({ pokemon }) => {
     </>
   );
 };
-CardPokeComponent.propTypes = {
+CardPokedexComponent.propTypes = {
   pokemon: PropTypes.object.isRequired,
 };

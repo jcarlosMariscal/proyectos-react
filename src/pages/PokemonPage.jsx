@@ -33,7 +33,7 @@ export const PokemonPage = () => {
         </div>
       ) : (
         <div
-          className="flex flex-col-reverse md:grid m-[1rem] p-5 md:h-[calc(40vh-2rem)] md:grid-cols-6 xl:h-[calc(90vh-2rem)] gap-3"
+          className="flex flex-col-reverse md:grid m-4 p-5 md:h-[calc(40vh-2rem)] md:grid-cols-6 xl:h-[calc(90vh-2rem)] gap-3"
           style={{
             color: `${secondary}`,
           }}

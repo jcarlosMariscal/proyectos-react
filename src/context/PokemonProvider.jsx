@@ -10,7 +10,7 @@ export const PokemonProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState(false);
 
-  const getAllPokemons = async (limit = 50) => {
+  const getAllPokemons = async (limit = 40) => {
     const baseURL = "https://pokeapi.co/api/v2/";
     const res = await fetch(
       `${baseURL}pokemon?limit=${limit}&offset=${offset}`
