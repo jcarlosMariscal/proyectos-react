@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { PokemonContext } from "./PokemonContext";
+import { PropTypes } from "prop-types";
 
 export const PokemonProvider = ({ children }) => {
   const [allPokemons, setAllPokemons] = useState([]);
@@ -8,9 +9,10 @@ export const PokemonProvider = ({ children }) => {
 
   // Estados simples para la aplicacion
   const [loading, setLoading] = useState(true);
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
 
   const getAllPokemons = async (limit = 40) => {
+    setLoading(true);
     const baseURL = "https://pokeapi.co/api/v2/";
     const res = await fetch(
       `${baseURL}pokemon?limit=${limit}&offset=${offset}`
@@ -19,10 +21,12 @@ export const PokemonProvider = ({ children }) => {
     const promises = data.results.map(async (pokemon) => {
       const res = await fetch(pokemon.url);
       const data = await res.json();
+      console.log(data);
       return data;
     });
     const results = await Promise.all(promises);
-    setAllPokemons([...allPokemons, ...results]);
+    // setAllPokemons([...allPokemons, ...results]);
+    setAllPokemons([...results]);
     setLoading(false);
   };
 
@@ -36,7 +40,7 @@ export const PokemonProvider = ({ children }) => {
       return data;
     });
     const results = await Promise.all(promises);
-    console.log(results);
+    // console.log(results);
     setGlobalPokemons(results);
     setLoading(false);
   };
@@ -48,15 +52,25 @@ export const PokemonProvider = ({ children }) => {
   };
   useEffect(() => {
     getAllPokemons();
-  }, []);
+  }, [offset]);
   useEffect(() => {
     getGlobalPokemons();
   }, []);
   return (
     <PokemonContext.Provider
-      value={{ allPokemons, globalPokemons, getPokemonById, loading }}
+      value={{
+        allPokemons,
+        globalPokemons,
+        getPokemonById,
+        loading,
+        setOffset,
+      }}
     >
       {children}
     </PokemonContext.Provider>
   );
+};
+
+PokemonProvider.propTypes = {
+  children: PropTypes.isRequired,
 };

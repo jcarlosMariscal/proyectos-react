@@ -27,7 +27,12 @@ export const CardPokedexComponent = ({ pokemon }) => {
         </div>
         <div className="flex justify-center sm:absolute sm:bottom-0 sm:right-[-1.5rem] md:right-[1.5rem] lg:right-[-1rem] xl:right-[-1.5rem] animate-movePokemon">
           <img
-            src={pokemon.sprites.other.dream_world.front_default}
+            src={
+              pokemon.sprites.other.dream_world.front_default ||
+              pokemon.sprites.other["official-artwork"].front_default ||
+              pokemon.sprites.other.home.front_default ||
+              "src/assets/img/pokeballNotFound.png"
+            }
             alt={`Pokemon ${pokemon.name}`}
             className="size-32 sm:size-40"
           />

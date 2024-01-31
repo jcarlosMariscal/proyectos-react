@@ -46,7 +46,12 @@ export const PokemonPage = () => {
           >
             <img
               className="size-60 md:size-80 animate-movePokemon"
-              src={pokemon.sprites?.other?.dream_world?.front_default}
+              src={
+                pokemon.sprites.other.dream_world.front_default ||
+                pokemon.sprites.other["official-artwork"].front_default ||
+                pokemon.sprites.other.home.front_default ||
+                "src/assets/img/pokeballNotFound.png"
+              }
               alt="sds"
             />
           </div>
