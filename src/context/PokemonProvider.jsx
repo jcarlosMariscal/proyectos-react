@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { PokemonContext } from "./PokemonContext";
 import { PropTypes } from "prop-types";
+import { useForm } from "../hooks/useForm";
 
 export const PokemonProvider = ({ children }) => {
   const [allPokemons, setAllPokemons] = useState([]);
   const [allItems, setAllItems] = useState([]);
   const [globalPokemons, setGlobalPokemons] = useState([]);
   const [offset, setOffset] = useState(0);
+
+  // Utilizar CustomHooks
+  const { valueSearch, onInputChange, onResetForm } = useForm({
+    valueSearch: "",
+  });
 
   // Estados simples para la aplicacion
   const [loading, setLoading] = useState(true);
@@ -68,6 +74,9 @@ export const PokemonProvider = ({ children }) => {
         loading,
         pokeOffSet: { setOffset, offset },
         allItems,
+        valueSearch,
+        onInputChange,
+        onResetForm,
       }}
     >
       {children}

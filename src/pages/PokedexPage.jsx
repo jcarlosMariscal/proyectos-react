@@ -6,7 +6,6 @@ import { Pagination } from "../components/Pagination";
 
 export const PokedexPage = () => {
   const { allPokemons, loading, allItems } = useContext(PokemonContext);
-  console.log();
   const [itemsPerPage] = useState(40);
   return (
     <>

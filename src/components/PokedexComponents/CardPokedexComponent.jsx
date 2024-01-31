@@ -13,7 +13,7 @@ export const CardPokedexComponent = ({ pokemon }) => {
   return (
     <>
       <Link
-        to={`pokemon/${pokemon.id}`}
+        to={`../pokedex/pokemon/${pokemon.id}`}
         className="rounded-lg relative h-[13rem] md:h-[15rem] md:h-[13rem] mx-4 sm:mx-0"
         style={{
           backgroundImage: primaryTwo

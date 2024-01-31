@@ -1,7 +1,8 @@
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { useContext } from "react";
+import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { PokemonContext } from "../context/PokemonContext";
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
@@ -17,6 +18,16 @@ export const NavBar = () => {
       current: location.pathname === "/pokedex",
     },
   ];
+  const { onInputChange, valueSearch, onResetForm } =
+    useContext(PokemonContext);
+  const navigate = useNavigate();
+  const onSearchSubmit = (e) => {
+    e.preventDefault();
+    navigate("/pokedex/search", {
+      state: valueSearch,
+    });
+    onResetForm();
+  };
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -65,10 +76,9 @@ export const NavBar = () => {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 hidden sm:flex">
-                <p className="text-white">Welcome</p>
+                {/* <p className="text-white">Welcome</p> */}
 
-                {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-3">
+                {/* <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
@@ -131,7 +141,24 @@ export const NavBar = () => {
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
-                </Menu>
+                </Menu> */}
+                <div className="container mx-auto my-3 p-3 flex gap-3 bg-yellow-100">
+                  <div className="bg-green-300">
+                    <h4>Filter</h4>
+                  </div>
+                  <div className="bg-violet-300 ">
+                    <form onSubmit={onSearchSubmit}>
+                      <input
+                        type="search"
+                        name="valueSearch"
+                        placeholder="Search pokemon"
+                        className="bg-white "
+                        value={valueSearch}
+                        onChange={onInputChange}
+                      />
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

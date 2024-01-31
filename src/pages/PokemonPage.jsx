@@ -30,7 +30,6 @@ export const PokemonPage = () => {
     });
   };
   const { primary, secondary, primaryTwo, secondaryTwo } = color;
-  console.log(primaryTwo);
   useEffect(() => {
     fetchPokemon(id);
   }, []);
