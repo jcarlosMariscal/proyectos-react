@@ -5,10 +5,8 @@ import { LoaderComponent } from "../components/pure/LoaderComponent";
 import { Pagination } from "../components/Pagination";
 
 export const PokedexPage = () => {
-  const { allPokemons, loading, globalPokemons, setOffset } =
-    useContext(PokemonContext);
-  console.log(globalPokemons.length);
-  const allItems = globalPokemons.length;
+  const { allPokemons, loading, allItems } = useContext(PokemonContext);
+  console.log();
   const [itemsPerPage] = useState(40);
   return (
     <>
@@ -25,15 +23,12 @@ export const PokedexPage = () => {
           </div>
         </>
       )}
-      {globalPokemons.length > 0 && (
-        <div className="flex justify-center my-3">
-          <Pagination
-            itemsPerPage={itemsPerPage}
-            allItems={allItems}
-            setOffset={setOffset}
-          />
-        </div>
-      )}
+      <div className="flex justify-center my-3">
+        <Pagination itemsPerPage={itemsPerPage} allItems={allItems} />
+      </div>
+      {/* {loading && (
+    
+      )} */}
     </>
   );
 };

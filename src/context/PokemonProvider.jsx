@@ -4,6 +4,7 @@ import { PropTypes } from "prop-types";
 
 export const PokemonProvider = ({ children }) => {
   const [allPokemons, setAllPokemons] = useState([]);
+  const [allItems, setAllItems] = useState([]);
   const [globalPokemons, setGlobalPokemons] = useState([]);
   const [offset, setOffset] = useState(0);
 
@@ -18,10 +19,12 @@ export const PokemonProvider = ({ children }) => {
       `${baseURL}pokemon?limit=${limit}&offset=${offset}`
     );
     const data = await res.json();
+    setAllItems(data.count);
+    console.log(data);
     const promises = data.results.map(async (pokemon) => {
       const res = await fetch(pokemon.url);
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       return data;
     });
     const results = await Promise.all(promises);
@@ -63,7 +66,8 @@ export const PokemonProvider = ({ children }) => {
         globalPokemons,
         getPokemonById,
         loading,
-        setOffset,
+        pokeOffSet: { setOffset, offset },
+        allItems,
       }}
     >
       {children}

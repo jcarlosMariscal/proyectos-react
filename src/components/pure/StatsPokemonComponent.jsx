@@ -10,7 +10,7 @@ export const StatsPokemonComponent = ({ name, color, base_stat }) => {
       <div
         className="w-full bg-gray-200 rounded-full h-7 my-3 relative flex items-center"
         style={{
-          background: `${color.primary}`,
+          background: `${color.primaryTwo ? color.primaryTwo : color.primary}`,
         }}
         title={`${base_stat} / 255`}
       >
@@ -21,7 +21,9 @@ export const StatsPokemonComponent = ({ name, color, base_stat }) => {
           className="h-7 rounded-full"
           style={{
             width: `${(base_stat / 255) * 100}%`,
-            background: `${color.secondary}`,
+            background: `${
+              color.secondaryTwo ? color.secondaryTwo : color.secondary
+            }`,
           }}
         ></div>
       </div>

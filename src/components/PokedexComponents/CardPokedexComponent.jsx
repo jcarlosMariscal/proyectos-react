@@ -5,15 +5,20 @@ import { resetString } from "../../helpers/resetString";
 import { TypePokemonComponent } from "../pure/TypePokemonComponent";
 
 export const CardPokedexComponent = ({ pokemon }) => {
-  const primary = colours[pokemon.types[0].type.name];
+  const types = pokemon.types.map((type) => type.type.name);
+  const primary = colours[types[0]];
   const secondary = secondaryColor(primary);
+  const primaryTwo = types.length > 1 ? colours[types[1]] : null;
+
   return (
     <>
       <Link
         to={`pokemon/${pokemon.id}`}
         className="rounded-lg relative h-[13rem] md:h-[15rem] md:h-[13rem] mx-4 sm:mx-0"
         style={{
-          background: `${primary}`,
+          backgroundImage: primaryTwo
+            ? `linear-gradient(75deg, ${primary} 30%, ${primary} 40%, ${primaryTwo} 60%)`
+            : `linear-gradient(to left top, ${primary}, ${primary})`,
           color: `${secondary}`,
         }}
       >

@@ -18,10 +18,19 @@ export const PokemonPage = () => {
     const data = await getPokemonById(id);
     setPokemon(data);
     setLoading(false);
-    const primary = colours[data.types[0].type.name];
-    setColor({ primary: primary, secondary: secondaryColor(primary) });
+    const types = data.types.map((type) => type.type.name);
+    const primary = colours[types[0]];
+    const primaryTwo = types.length > 1 ? colours[types[1]] : null;
+    const secondaryTwo = types.length > 1 ? secondaryColor(primaryTwo) : null;
+    setColor({
+      primary: primary,
+      secondary: secondaryColor(primary),
+      primaryTwo,
+      secondaryTwo,
+    });
   };
-  const { primary, secondary } = color;
+  const { primary, secondary, primaryTwo, secondaryTwo } = color;
+  console.log(primaryTwo);
   useEffect(() => {
     fetchPokemon(id);
   }, []);
@@ -41,7 +50,9 @@ export const PokemonPage = () => {
           <div
             className="h-auto md:min-h-full md:col-span-2 flex items-center justify-center px-3 rounded-md"
             style={{
-              background: `${primary}`,
+              backgroundImage: primaryTwo
+                ? `linear-gradient(150deg, ${primary} 30%, ${primary} 40%, ${primaryTwo} 60%)`
+                : `linear-gradient(to left top, ${primary}, ${primary})`,
             }}
           >
             <img
@@ -76,7 +87,10 @@ export const PokemonPage = () => {
                 {pokemon.weight} KG
               </p>
             </div>
-            <div className="my-3">
+            <div
+              className="my-3"
+              style={{ color: `${secondaryTwo ? secondaryTwo : primaryTwo}` }}
+            >
               <h5 className="text-2xl font-bold text-center">Stats</h5>
               <div>
                 {pokemon.stats.map((stat, index) => (
