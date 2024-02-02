@@ -1,8 +1,14 @@
 import { useContext } from "react";
 import { Disclosure } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  AdjustmentsHorizontalIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { PokemonContext } from "../context/PokemonContext";
+import { ButtonComponent } from "./pure/ButtonComponent";
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
@@ -13,13 +19,16 @@ export const NavBar = () => {
   const navigation = [
     { name: "Home", to: "/", current: location.pathname === "/" },
     {
-      name: "App Pokemon",
+      name: "Pokedex",
       to: "/pokedex",
       current: location.pathname === "/pokedex",
     },
   ];
-  const { onInputChange, valueSearch, onResetForm } =
+  const { onInputChange, valueSearch, onResetForm, filterActive, types } =
     useContext(PokemonContext);
+  const { typeSelected } = types;
+  const search = typeSelected.filter((el) => el.checked);
+  const { active, setActive } = filterActive;
   const navigate = useNavigate();
   const onSearchSubmit = (e) => {
     e.preventDefault();
@@ -27,6 +36,9 @@ export const NavBar = () => {
       state: valueSearch,
     });
     onResetForm();
+  };
+  const showComponentFilter = () => {
+    setActive(!active);
   };
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -142,19 +154,45 @@ export const NavBar = () => {
                     </Menu.Items>
                   </Transition>
                 </Menu> */}
-                <div className="container mx-auto my-3 p-3 flex gap-3 bg-yellow-100">
-                  <div className="bg-green-300">
-                    <h4>Filter</h4>
+                <div className="container mx-auto my-3 p-3 flex items-center gap-3">
+                  <div className="flex items-center">
+                    <ButtonComponent
+                      text={
+                        <AdjustmentsHorizontalIcon className="size-8 text-white" />
+                      }
+                      color={`${
+                        search.length
+                          ? "bg-gray-900 border border-white"
+                          : "bg-gray-700 border border-gray-700"
+                      } hover:bg-gray-600`}
+                      size="size-8"
+                      handleClick={showComponentFilter}
+                    />
+                    {/* ? "bg-gray-900 text-white" : "text-gray-300
+                    hover:bg-gray-700 hover:text-white", */}
                   </div>
-                  <div className="bg-violet-300 ">
-                    <form onSubmit={onSearchSubmit}>
-                      <input
-                        type="search"
-                        name="valueSearch"
-                        placeholder="Search pokemon"
-                        className="bg-white "
-                        value={valueSearch}
-                        onChange={onInputChange}
+                  <div className="">
+                    <form
+                      onSubmit={onSearchSubmit}
+                      className="flex gap-2 items-center"
+                    >
+                      <div className="relative">
+                        <input
+                          type="text"
+                          name="valueSearch"
+                          placeholder="Search pokemon"
+                          className="py-1 px-2 bg-gray-700 text-white rounded-full outline-none"
+                          value={valueSearch}
+                          onChange={onInputChange}
+                        />
+                        <span className="absolute right-2 top-0 bottom-0 flex items-center justify-center">
+                          <MagnifyingGlassIcon className="h-6 w-6 text-gray-500" />
+                        </span>
+                      </div>
+                      <ButtonComponent
+                        text="Search"
+                        color="bg-gray-700 text-white hover:bg-gray-600"
+                        size="w-20 h-8"
                       />
                     </form>
                   </div>

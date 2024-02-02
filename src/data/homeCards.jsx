@@ -185,25 +185,25 @@ export const homeCards = [
       {
         icon: svgVite,
         color: "bg-violet-300 shadow-violet-500/100",
-        size: "w-10 h-14 rounded-lg",
+        size: "w-10 h-12 rounded-lg",
         text: "",
       },
       {
         icon: svgReact,
         color: "bg-zinc-800 shadow-zinc-900/100",
-        size: "w-10 h-14 rounded-lg",
+        size: "w-10 h-12 rounded-lg",
         text: "",
       },
       {
         icon: svgTailwind,
         color: "bg-sky-950 shadow-sky-800/100",
-        size: "w-10 h-14 rounded-lg",
+        size: "w-10 h-12 rounded-lg",
         text: "",
       },
       {
         icon: svgVercel,
         color: "bg-black shadow-gray-700/100",
-        size: "w-10 h-14 rounded-lg",
+        size: "w-10 h-12 rounded-lg",
         text: "",
       },
     ],
@@ -224,3 +224,24 @@ export const orderCardCSS = [
   },
   { zIndex: "z-30", cardBg: "bg-white shadow-lg", cardUp: true },
 ];
+
+export const sizeCard = (cardSize) => {
+  if (cardSize === "sm") {
+    return {
+      textSize: "text-lg md:text-2xl",
+      flex: "flew-row",
+      imgSize: "w-[10rem] xl:w-[10rem]",
+    };
+  } else {
+    return {
+      textSize: "text-lg sm:text-xl xl:text-4xl",
+      flex: "flex-row xl:flex-col",
+      imgSize: "w-[15rem] xl:w-[20rem]",
+    };
+  }
+};
+
+export const getColorBtn = (cardUp) =>
+  cardUp
+    ? "bg-blue-400 text-white cursor-auto shadow-lg shadow-blue-200/100"
+    : "bg-gray-100 text-gray-600 hover:bg-gray-600 hover:text-gray-100 shadow-lg shadow-gray-200/100";

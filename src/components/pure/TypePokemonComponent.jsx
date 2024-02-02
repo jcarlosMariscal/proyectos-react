@@ -6,7 +6,7 @@ export const TypePokemonComponent = ({ name }) => {
   const bg = secondaryColor(colours[name]);
   return (
     <span
-      className="mr-2 text-white rounded-lg py-1 px-3"
+      className="mr-2 text-white rounded-full py-1 px-3"
       style={{
         background: `${bg}`,
       }}

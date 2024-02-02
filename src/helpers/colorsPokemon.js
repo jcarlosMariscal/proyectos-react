@@ -18,6 +18,80 @@ export const colours = {
   steel: "#B7B7CE",
   fairy: "#D685AD",
 };
+export const pokemonTypeStates = [
+  {
+    type: "normal",
+    checked: false,
+  },
+  {
+    type: "fire",
+    checked: false,
+  },
+  {
+    type: "water",
+    checked: false,
+  },
+  {
+    type: "electric",
+    checked: false,
+  },
+  {
+    type: "grass",
+    checked: false,
+  },
+  {
+    type: "ice",
+    checked: false,
+  },
+  {
+    type: "fighting",
+    checked: false,
+  },
+  {
+    type: "poison",
+    checked: false,
+  },
+  {
+    type: "ground",
+    checked: false,
+  },
+  {
+    type: "flying",
+    checked: false,
+  },
+  {
+    type: "psychic",
+    checked: false,
+  },
+  {
+    type: "bug",
+    checked: false,
+  },
+  {
+    type: "rock",
+    checked: false,
+  },
+  {
+    type: "ghost",
+    checked: false,
+  },
+  {
+    type: "dragon",
+    checked: false,
+  },
+  {
+    type: "dark",
+    checked: false,
+  },
+  {
+    type: "steel",
+    checked: false,
+  },
+  {
+    type: "fairy",
+    checked: false,
+  },
+];
 export const secondaryColor = (hexColor, factor = 0.5) => {
   // Convierte el color hexadecimal a RGB
   hexColor = hexColor.replace(/^#/, "");

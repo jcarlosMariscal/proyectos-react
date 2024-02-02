@@ -60,9 +60,9 @@ export const PokemonPage = () => {
                 pokemon.sprites.other.dream_world.front_default ||
                 pokemon.sprites.other["official-artwork"].front_default ||
                 pokemon.sprites.other.home.front_default ||
-                "src/assets/img/pokeballNotFound.png"
+                "../../src/assets/img/pokeballNotFound.png"
               }
-              alt="sds"
+              alt={`Pokemon ${pokemon.name}`}
             />
           </div>
           <div className=" col-span-4">

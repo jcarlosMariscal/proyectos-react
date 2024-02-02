@@ -24,9 +24,11 @@ export const HomePage = () => {
           key={card.id}
           customCSS={`${card.css.size} ${card.css.position}`}
           cardSize={card.cardSize}
-          image={card.content.image}
-          title={card.content.title}
-          description={card.content.description}
+          data={{
+            title: card.content.title,
+            description: card.content.description,
+            image: card.content.image,
+          }}
           icons={card.icons}
           changeCard={() =>
             card.id === orderCard[orderCard.length - 1]

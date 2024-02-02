@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 export const ButtonComponent = ({ text, color, size, handleClick }) => {
   return (
     <button
-      className={`${color} p-2 rounded-custom ${size} flex justify-center items-center transition-colors duration-500 ease-out`}
+      className={`${color} p-1 rounded-full ${size} flex justify-center items-center btn-transition`}
       onClick={handleClick}
     >
       {text}
