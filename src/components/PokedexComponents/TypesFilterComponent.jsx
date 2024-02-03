@@ -20,7 +20,7 @@ export const TypesFilterComponent = () => {
           handleClick={handleResetFilter}
         />
         <ButtonComponent
-          text={<XMarkIcon class="size-10" />}
+          text={<XMarkIcon className="size-10" />}
           color="btn-white"
           size="size-8"
           handleClick={handleCloseFilter}

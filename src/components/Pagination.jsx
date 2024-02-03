@@ -45,6 +45,4 @@ export const Pagination = ({ itemsPerPage }) => {
 
 Pagination.propTypes = {
   itemsPerPage: PropTypes.number.isRequired,
-  allItems: PropTypes.number.isRequired,
-  setOffset: PropTypes.func.isRequired,
 };

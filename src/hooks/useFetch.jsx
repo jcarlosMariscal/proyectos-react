@@ -1,18 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export const useFetch = async (offset, limit) => {
-  const [allPokemons, setAllPokemons] = useState([]);
-  const baseURL = "https://pokeapi.co/api/v2/";
-  const res = await fetch(`${baseURL}pokemon?limit=${limit}&offset=${offset}`);
-  const data = await res.json();
-  // console.log(data);
-  const promises = data.results.map(async (pokemon) => {
-    const res = await fetch(pokemon.url);
-    const data = await res.json();
-    return data;
-  });
-  const results = await Promise.all(promises);
-  // console.log(results);
-  setAllPokemons(results);
-  return allPokemons;
+const useFetch = (url, options = {}) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [url, options]);
+
+  return { data, loading, error };
 };
+
+export default useFetch;

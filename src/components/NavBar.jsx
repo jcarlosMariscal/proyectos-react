@@ -24,8 +24,8 @@ export const NavBar = () => {
       current: location.pathname === "/pokedex",
     },
   ];
-  const { onInputChange, valueSearch, onResetForm, filterActive, types } =
-    useContext(PokemonContext);
+  const { inputSearch, filterActive, types } = useContext(PokemonContext);
+  const { onInputChange, valueSearch, onResetForm } = inputSearch;
   const { typeSelected } = types;
   const search = typeSelected.filter((el) => el.checked);
   const { active, setActive } = filterActive;
@@ -87,7 +87,7 @@ export const NavBar = () => {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 hidden sm:flex">
+              <div className="absolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 hidden sm:flex">
                 {/* <p className="text-white">Welcome</p> */}
 
                 {/* <Menu as="div" className="relative ml-3">
