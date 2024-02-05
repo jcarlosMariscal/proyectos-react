@@ -23,6 +23,11 @@ export const NavBar = () => {
       to: "/pokedex",
       current: location.pathname === "/pokedex",
     },
+    {
+      name: "Kanban",
+      to: "/kanban",
+      current: location.pathname === "/kanban",
+    },
   ];
   const { inputSearch, filterActive, types } = useContext(PokemonContext);
   const { onInputChange, valueSearch, onResetForm } = inputSearch;

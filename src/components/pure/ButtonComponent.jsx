@@ -11,7 +11,7 @@ export const ButtonComponent = ({ text, color, size, handleClick }) => {
 };
 ButtonComponent.propTypes = {
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  color: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  size: PropTypes.string,
   handleClick: PropTypes.func,
 };

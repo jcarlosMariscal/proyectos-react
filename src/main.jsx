@@ -8,11 +8,13 @@ import { PokemonProvider } from "./context/PokemonProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    {/* // <div> */}
     <BrowserRouter>
       <PokemonProvider>
         <NavBar />
         <AppRouter></AppRouter>
       </PokemonProvider>
     </BrowserRouter>
+    {/* </div> */}
   </React.StrictMode>
 );
