@@ -1,11 +1,17 @@
-import { mockData } from "../data/kanbanMockData";
-import { useState } from "react";
+import { kanbanColorsHexa, mockData } from "../data/kanbanMockData";
+import { useContext, useState } from "react";
 import { DndProvider } from "react-dnd/dist";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CardKanbanComponent } from "../components/KanbanComponents/CardKanbanComponent";
+import { SelectColorsComponent } from "../components/KanbanComponents/SelectColorsComponent";
+import { HeaderKanbanComponent } from "../components/KanbanComponents/HeaderKanbanComponent";
+import { KanbanContext } from "../context/KanbanContext";
 
 export const KanbanPage = () => {
   const [data, setData] = useState(mockData);
+  const { colorsState, indexSelec } = useContext(KanbanContext);
+  const { indexSelected } = indexSelec;
+  const { primary, tertiary } = kanbanColorsHexa[indexSelected];
 
   const handleTarjetaDrop = (move, destinationCard) => {
     const { task } = move;
@@ -43,9 +49,17 @@ export const KanbanPage = () => {
   };
   return (
     <>
-      <div className="w-full h-[90vh]">
+      <div
+        className={`w-full h-[calc(90vh)] relative`}
+        style={{
+          backgroundColor: `${tertiary}`,
+          backgroundImage: `linear-gradient(90deg, ${primary} 0%, ${tertiary} 100%)`,
+        }}
+      >
+        <HeaderKanbanComponent />
+
         <DndProvider backend={HTML5Backend}>
-          <div className="flex justify-center bg-blue-200 h-full py-6">
+          <div className="flex justify-center my-5">
             <div className="flex items-start gap-3">
               {data.map((el, index) => (
                 <CardKanbanComponent
@@ -56,10 +70,9 @@ export const KanbanPage = () => {
                 />
               ))}
             </div>
-            {/* <div className="flex bg-violet-500">
-            </div> */}
           </div>
         </DndProvider>
+        {colorsState.active && <SelectColorsComponent />}
       </div>
     </>
   );
