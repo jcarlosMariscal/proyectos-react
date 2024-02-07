@@ -3,28 +3,31 @@ export const mockData = [
   {
     id: uuidv4(),
     title: "Por hacer",
+    isEditing: false,
     tasks: [
-      { id: uuidv4(), title: "Tarjeta 1" },
-      { id: uuidv4(), title: "Tarjeta 2" },
-      { id: uuidv4(), title: "Tarjeta 3" },
+      { id: uuidv4(), title: "Tarjeta 1", isEditing: false },
+      { id: uuidv4(), title: "Tarjeta 2", isEditing: false },
+      { id: uuidv4(), title: "Tarjeta 3", isEditing: false },
     ],
   },
   {
     id: uuidv4(),
     title: "En proceso",
+    isEditing: false,
     tasks: [
-      { id: uuidv4(), title: "Tarjeta 4" },
-      { id: uuidv4(), title: "Tarjeta 5" },
-      { id: uuidv4(), title: "Tarjeta 6" },
+      { id: uuidv4(), title: "Tarjeta 4", isEditing: false },
+      { id: uuidv4(), title: "Tarjeta 5", isEditing: false },
+      { id: uuidv4(), title: "Tarjeta 6", isEditing: false },
     ],
   },
   {
     id: uuidv4(),
     title: "Finalizado",
+    isEditing: false,
     tasks: [
-      { id: uuidv4(), title: "Tarjeta 7" },
-      { id: uuidv4(), title: "Tarjeta 8" },
-      { id: uuidv4(), title: "Tarjeta 9" },
+      { id: uuidv4(), title: "Tarjeta 7", isEditing: false },
+      { id: uuidv4(), title: "Tarjeta 8", isEditing: false },
+      { id: uuidv4(), title: "Tarjeta 9", isEditing: false },
     ],
   },
 ];

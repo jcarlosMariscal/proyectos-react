@@ -1,21 +1,40 @@
 import { useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { KanbanContext } from "../../context/KanbanContext";
 import { ButtonComponent } from "../pure/ButtonComponent";
-import { PaintBrushIcon } from "@heroicons/react/24/solid";
+import { PaintBrushIcon, PlusIcon } from "@heroicons/react/24/solid";
 
 export const HeaderKanbanComponent = () => {
-  const { colorsState, colorSelected } = useContext(KanbanContext);
+  const { colorsState, colorSelected, mockData } = useContext(KanbanContext);
+  const { kanbanList, setKanbanList } = mockData;
   const { colorsActive, setColorsActive } = colorsState;
   const { secondary, tertiary } = colorSelected;
   const changeState = () => {
     setColorsActive(!colorsActive);
+  };
+  const addList = () => {
+    setKanbanList([
+      ...kanbanList,
+      { id: uuidv4(), title: "Nueva Lista", tasks: [] },
+    ]);
   };
   return (
     <div className={`${tertiary} px-6 py-2 flex justify-between items-center`}>
       <div className="">
         <h3 className="text-xl text-gray-200">Kanban</h3>
       </div>
-      <div className="text-gray-200 right-6">
+      <div className="text-gray-200 right-6 flex gap-1">
+        <ButtonComponent
+          text={
+            <>
+              <PlusIcon className={`size-6 p-1`} />
+              <span className="mx-1">Añadir lista</span>
+            </>
+          }
+          color={`${secondary} hover:opacity-80`}
+          size={`h-8 px-1 rounded-md`}
+          handleClick={addList}
+        />
         <ButtonComponent
           text={
             <>
