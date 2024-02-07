@@ -54,19 +54,24 @@ export const KanbanPage = () => {
       }}
     >
       <HeaderKanbanComponent />
-
       <DndProvider backend={HTML5Backend}>
-        <div className="flex justify-center my-5">
-          <div className="flex items-start gap-3">
-            {kanbanList.map((el, index) => (
-              <CardKanbanComponent
-                key={index}
-                idList={el.id}
-                title={el.title}
-                tasks={el.tasks}
-                onTarjetaDrop={handleTarjetaDrop}
-              />
-            ))}
+        <div className="flex !justify-center my-5 gap-3 h-[calc(80vh)]">
+          <div className="flex items-start gap-3 w-full px-5 overflow-x-auto">
+            {kanbanList.length ? (
+              kanbanList.map((el, index) => (
+                <CardKanbanComponent
+                  key={index}
+                  idList={el.id}
+                  title={el.title}
+                  tasks={el.tasks}
+                  onTarjetaDrop={handleTarjetaDrop}
+                />
+              ))
+            ) : (
+              <p className="w-full text-gray-200 text-center">
+                Parece que no hay ninguna lista por ahora. Agregue una.
+              </p>
+            )}
           </div>
         </div>
       </DndProvider>

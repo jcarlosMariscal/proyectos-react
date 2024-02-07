@@ -4,11 +4,7 @@ import { useContext, useState } from "react";
 import { KanbanContext } from "../../context/KanbanContext";
 import ContentEditable from "react-contenteditable";
 // import { ButtonComponent } from "../pure/ButtonComponent";
-// import {
-//   PencilSquareIcon,
-//   TrashIcon,
-//   BookmarkIcon,
-// } from "@heroicons/react/24/solid";
+// import { TrashIcon } from "@heroicons/react/24/solid";
 
 export const Card = ({ idList, task }) => {
   const { colorSelected, mockData } = useContext(KanbanContext);
@@ -38,6 +34,18 @@ export const Card = ({ idList, task }) => {
   };
   const handleFocus = () => setTextIsEditing(true);
   const handleBlur = () => setTextIsEditing(false);
+  // const deleteCard = () => {
+  //   setKanbanList((prevData) => {
+  //     const updatedData = [...prevData];
+  //     const listIndex = updatedData.findIndex((el) => el.id === idList);
+  //     const updateTask = updatedData[listIndex].tasks.filter(
+  //       (el) => task.id != el.id
+  //     );
+  //     console.log(updateTask);
+  //     updatedData[listIndex].tasks = updateTask;
+  //     return updatedData;
+  //   });
+  // };
   return (
     <div ref={drag} className={`my-2 h-14`}>
       <div
@@ -54,6 +62,13 @@ export const Card = ({ idList, task }) => {
           }`}
           disabled={false}
         ></ContentEditable>
+        {/* <div className="absolute right-0 bottom-0">
+          <ButtonComponent
+            text={<TrashIcon className="size-4" />}
+            color="text-gray-200 opacity-40 hover:opacity-80"
+            handleClick={deleteCard}
+          />
+        </div> */}
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { PropTypes } from "prop-types";
 import { Card } from "./Card";
 import { ButtonComponent } from "../pure/ButtonComponent";
-import { PlusIcon } from "@heroicons/react/24/solid";
+import { PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { KanbanContext } from "../../context/KanbanContext";
 import { useContext, useState } from "react";
 import ContentEditable from "react-contenteditable";
@@ -56,11 +56,19 @@ export const CardKanbanComponent = ({
   };
   const handleFocus = () => setIsEditing(true);
   const handleBlur = () => setIsEditing(false);
+  const deleteList = () => {
+    setKanbanList((prevData) => {
+      const updatedData = [...prevData];
+      const deleteList = updatedData.filter((el) => el.id !== idList);
+      // console.log(listEditIndex);
+      return deleteList;
+    });
+  };
   return (
     <>
       <div
         ref={drop}
-        className={`${tertiary} w-60 h-auto p-2 rounded-md shadow-lg shadow-gray-400/15`}
+        className={`${tertiary} min-w-60 h-auto p-2 rounded-md shadow-lg shadow-gray-400/15`}
       >
         <div className="flex justify-between items-center gap-2">
           <ContentEditable
@@ -74,11 +82,22 @@ export const CardKanbanComponent = ({
             }`}
             contentEditable={!isEditing}
           />
+          <ButtonComponent
+            text={<TrashIcon className="size-5" />}
+            color="text-gray-200 opacity-60 hover:opacity-80"
+            handleClick={deleteList}
+          />
         </div>
         <div className="">
-          {tasks.map((task, index) => (
-            <Card key={index} idList={idList} task={task} />
-          ))}
+          {tasks.length ? (
+            tasks.map((task, index) => (
+              <Card key={index} idList={idList} task={task} />
+            ))
+          ) : (
+            <p className="text-center text-gray-200">
+              Añade la primera tarjeta.
+            </p>
+          )}
         </div>
         <div className="!text-sm text-gray-200">
           <ButtonComponent

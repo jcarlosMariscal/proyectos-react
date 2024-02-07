@@ -19,7 +19,9 @@ export const HeaderKanbanComponent = () => {
     ]);
   };
   return (
-    <div className={`${tertiary} px-6 py-2 flex justify-between items-center`}>
+    <div
+      className={`${tertiary} px-6 py-2 flex flex-col md:flex-row justify-between items-center`}
+    >
       <div className="">
         <h3 className="text-xl text-gray-200">Kanban</h3>
       </div>
