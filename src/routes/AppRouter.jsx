@@ -4,6 +4,7 @@ import { PokedexPage } from "../pages/PokedexPage";
 import { PokemonPage } from "../pages/PokemonPage";
 import { PokemonSearchPage } from "../pages/PokemonSearchPage";
 import { KanbanPage } from "../pages/KanbanPage";
+import { CalculatorPage } from "../pages/CalculatorPage";
 
 export const AppRouter = () => {
   return (
@@ -13,6 +14,7 @@ export const AppRouter = () => {
       <Route path="pokedex/pokemon/:id" element={<PokemonPage />} />
       <Route path="pokedex/search" element={<PokemonSearchPage />} />
       <Route path="kanban" element={<KanbanPage />} />
+      <Route path="calculator" element={<CalculatorPage />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
