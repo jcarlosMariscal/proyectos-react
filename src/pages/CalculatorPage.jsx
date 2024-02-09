@@ -5,17 +5,54 @@ import { evaluate } from "mathjs";
 
 export const CalculatorPage = () => {
   const [input, setInput] = useState("");
+  const [lastClick, setLastClick] = useState("");
   // const [total, setTotal] = useState(0);
   const addValue = (value) => {
-    let es = value;
-    if (es == "*") es = "X";
+    if (input == "") {
+      if (
+        value == "/" ||
+        value == "*" ||
+        value == "-" ||
+        value == "+" ||
+        value == "%" ||
+        value == "( )"
+      ) {
+        return;
+      }
+    }
+    if (
+      value == "/" ||
+      value == "*" ||
+      value == "-" ||
+      value == "+" ||
+      value == "%" ||
+      value == "( )"
+    ) {
+      setLastClick(value);
+    }
     setInput(input + value);
+  };
+  const convertNumber = () => {
+    if (lastClick) {
+      let match = input.match(/(\([-+/*]\d+\))|\w+/gm);
+      // let match = input.match(/([-+/*]\d+(\.\d+)?|\d+(\.\d+)?)/g);
+      let lastNumber = match[match.length - 1];
+      let number = lastNumber.replace(/[()]/g, "");
+      // number = number.startsWith("+")
+      //   ? parseFloat(number.slice(1))
+      //   : parseFloat(number);
+      setInput((prevData) => {
+        let data = prevData;
+        const cutNumber = data.slice(0, -lastNumber.length);
+        data = cutNumber;
+        let concatNumber = number < 0 ? `${Math.abs(number)}` : `(-${number})`;
+        return data + concatNumber;
+      });
+    }
   };
   const reset = () => {
     if (!input) return;
     setInput("");
-    // setTotal("");
-    // setTotal(0);
   };
   const calculateTotal = () => {
     if (!input) return;
@@ -25,9 +62,6 @@ export const CalculatorPage = () => {
     <div className="bg-gray-900 w-full h-[90vh] flex items-center justify-center">
       <div className="container w-[25rem] bg-gray-950 text-gray-200 rounded-md py-4 px-10">
         <div className="w-full">
-          {/* <div className="h-6">
-            <p className="text-gray-400 text-sm text-right">{input}</p>
-          </div> */}
           <form className="w-full">
             <input
               type="text"
@@ -37,7 +71,8 @@ export const CalculatorPage = () => {
             />
           </form>
         </div>
-        <div className="flex justify-between px-4 mb-2 py-2 border-b border-gray-700">
+        {lastClick}
+        <div className="flex justify-between mb-2 py-2 border-b border-gray-700">
           <ButtonCalculator text={<ClockIcon class="size-6 text-gray-200" />} />
           <ButtonCalculator
             text={<BackspaceIcon class="size-6 text-gray-200" />}
@@ -135,7 +170,7 @@ export const CalculatorPage = () => {
           <ButtonCalculator
             text="+/-"
             color="bg-gray-900 "
-            handleClick={addValue}
+            handleClick={convertNumber}
           />
           <ButtonCalculator
             text="0"
