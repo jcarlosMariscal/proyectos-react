@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { KanbanContext } from "../../context/KanbanContext";
 import { ButtonComponent } from "../pure/ButtonComponent";
 import { PaintBrushIcon, PlusIcon } from "@heroicons/react/24/solid";
@@ -15,7 +14,7 @@ export const HeaderKanbanComponent = () => {
   const addList = () => {
     setKanbanList([
       ...kanbanList,
-      { id: uuidv4(), title: "Nueva Lista", tasks: [] },
+      { id: kanbanList.length + 1, title: "Nueva Lista", tasks: [] },
     ]);
   };
   return (

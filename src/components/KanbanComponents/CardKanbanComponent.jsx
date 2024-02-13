@@ -1,5 +1,5 @@
 import { useDrop } from "react-dnd";
-import { v4 as uuidv4 } from "uuid";
+
 import { PropTypes } from "prop-types";
 import { Card } from "./Card";
 import { ButtonComponent } from "../pure/ButtonComponent";
@@ -30,7 +30,7 @@ export const CardKanbanComponent = ({
       const editListIndex = updatedData.findIndex((card) => card.id === idList);
       const updatedTasks = [
         ...updatedData[editListIndex].tasks,
-        { id: uuidv4(), title: "Nueva tarjeta" },
+        { id: updatedData.length + 1, title: "Nueva tarjeta" },
       ];
 
       // Actualizar el estado con la nueva copia de datos
@@ -70,6 +70,7 @@ export const CardKanbanComponent = ({
         ref={drop}
         className={`${tertiary} min-w-60 h-auto p-2 rounded-md shadow-lg shadow-gray-400/15`}
       >
+        {idList}
         <div className="flex justify-between items-center gap-2">
           <ContentEditable
             html={content}

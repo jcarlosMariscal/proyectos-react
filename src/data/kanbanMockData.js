@@ -1,33 +1,33 @@
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 export const mockData = [
   {
-    id: uuidv4(),
+    id: 1,
     title: "Por hacer",
     isEditing: false,
     tasks: [
-      { id: uuidv4(), title: "Tarjeta 1", isEditing: false },
-      { id: uuidv4(), title: "Tarjeta 2", isEditing: false },
-      { id: uuidv4(), title: "Tarjeta 3", isEditing: false },
+      { id: 1, title: "Tarjeta 1", isEditing: false },
+      { id: 2, title: "Tarjeta 2", isEditing: false },
+      { id: 3, title: "Tarjeta 3", isEditing: false },
     ],
   },
   {
-    id: uuidv4(),
+    id: 2,
     title: "En proceso",
     isEditing: false,
     tasks: [
-      { id: uuidv4(), title: "Tarjeta 4", isEditing: false },
-      { id: uuidv4(), title: "Tarjeta 5", isEditing: false },
-      { id: uuidv4(), title: "Tarjeta 6", isEditing: false },
+      { id: 1, title: "Tarjeta 4", isEditing: false },
+      { id: 2, title: "Tarjeta 5", isEditing: false },
+      { id: 3, title: "Tarjeta 6", isEditing: false },
     ],
   },
   {
-    id: uuidv4(),
+    id: 3,
     title: "Finalizado",
     isEditing: false,
     tasks: [
-      { id: uuidv4(), title: "Tarjeta 7", isEditing: false },
-      { id: uuidv4(), title: "Tarjeta 8", isEditing: false },
-      { id: uuidv4(), title: "Tarjeta 9", isEditing: false },
+      { id: 1, title: "Tarjeta 7", isEditing: false },
+      { id: 2, title: "Tarjeta 8", isEditing: false },
+      { id: 3, title: "Tarjeta 9", isEditing: false },
     ],
   },
 ];
