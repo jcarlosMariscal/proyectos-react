@@ -23,13 +23,6 @@ export const HomeCardComponent = ({
       <div className="m-5">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
           <h2 className={`${textSize} font-bold`}>{title}</h2>
-          {cardSize !== "sm" && (
-            <ButtonComponent
-              text="Visite the Page"
-              color="bg-gray-700 hover:bg-gray-950 text-white"
-              size="px-3 h-8 sm:w-max"
-            />
-          )}
         </div>
         {cardSize !== "sm" && pDesc}
         <IconsCardComponent icons={icons} image={image} cardSize={cardSize} />

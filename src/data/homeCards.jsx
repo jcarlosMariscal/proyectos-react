@@ -1,9 +1,4 @@
-import {
-  RocketLaunchIcon,
-  GlobeAltIcon,
-  BuildingStorefrontIcon,
-  DevicePhoneMobileIcon,
-} from "@heroicons/react/24/solid";
+import { CheckIcon } from "@heroicons/react/24/solid";
 const svgVite = (
   <svg xmlns="http://www.w3.org/2000/svg" width="2rem" viewBox="0 0 128 128">
     <defs>
@@ -104,34 +99,34 @@ export const homeCards = [
     },
     content: {
       image: "image1.png",
-      title: "Lorem ipsum dolor sit amet.",
+      title: "Tablero Kanban",
       description:
         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum officiis praesentium maiores eos cupiditate sed.",
     },
     icons: [
       {
-        icon: <RocketLaunchIcon className={`h-6 w-6`} />,
+        icon: <CheckIcon className={`h-6 w-6`} />,
         color: "text-green-700 bg-green-400 shadow-green-700/100",
         size: "w-10 h-10 rounded-full",
-        text: "Lorem ipsum dolor sit amet.",
+        text: "Cambiar fondo general",
       },
       {
-        icon: <GlobeAltIcon className={`h-6 w-6`} />,
+        icon: <CheckIcon className={`h-6 w-6`} />,
         color: "text-green-700 bg-green-400 shadow-green-700/100",
         size: "w-10 h-10 rounded-full",
-        text: "Lorem ipsum dolor sit amet.",
+        text: "Eliminar / agregar una lista",
       },
       {
-        icon: <BuildingStorefrontIcon className={`h-6 w-6`} />,
+        icon: <CheckIcon className={`h-6 w-6`} />,
         color: "text-green-700 bg-green-400 shadow-green-700/100",
         size: "w-10 h-10 rounded-full",
-        text: "Lorem ipsum dolor sit amet.",
+        text: "Agregar Tarjetas",
       },
       {
-        icon: <DevicePhoneMobileIcon className={`h-6 w-6`} />,
+        icon: <CheckIcon className={`h-6 w-6`} />,
         color: "text-green-700 bg-green-400 shadow-green-700/100",
         size: "w-10 h-10 rounded-full",
-        text: "Lorem ipsum dolor sit amet.",
+        text: "Mover tarjetas a otras listas y editarlas.",
       },
     ],
     order: 10,
@@ -146,22 +141,28 @@ export const homeCards = [
     },
     content: {
       image: "image2.png",
-      title: "Lorem ipsum dolor sit.",
+      title: "Pokedex",
       description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum officiis praesentium maiores eos cupiditate sed.",
+        "Ejercicio para prácticar el consumo a la API de PokeAPI y mostrar la información de Pokemones de manera general e individual. Además de aplicar un filtro por los tipos de Pokemones y una búsqueda.",
     },
     icons: [
       {
-        icon: <RocketLaunchIcon className={`h-6 w-6`} />,
+        icon: <CheckIcon className={`h-6 w-6`} />,
         color: "text-blue-700 bg-blue-400 shadow-blue-700/100",
         size: "w-10 h-10 rounded-full",
-        text: "Lorem ipsum dolor sit amet.",
+        text: "Carga de Pokemones",
       },
       {
-        icon: <RocketLaunchIcon className={`h-6 w-6`} />,
+        icon: <CheckIcon className={`h-6 w-6`} />,
         color: "text-blue-700 bg-blue-400 shadow-blue-700/100",
         size: "w-10 h-10 rounded-full",
-        text: "Lorem ipsum dolor sit amet.",
+        text: "Filtro y búsquda de Pokemones",
+      },
+      {
+        icon: <CheckIcon className={`h-6 w-6`} />,
+        color: "text-blue-700 bg-blue-400 shadow-blue-700/100",
+        size: "w-10 h-10 rounded-full",
+        text: "Paginador",
       },
     ],
     order: 20,
@@ -177,9 +178,9 @@ export const homeCards = [
     },
     content: {
       image: "image3.png",
-      title: "Lorem ipsum dolor sit.",
+      title: "Proyectos React",
       description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit harum officiis praesentium maiores.",
+        "Aquí podrá encontrar tres proyectos interesantes hechos con React: un Pokedex, un Kanban y una Calculadora básica",
     },
     icons: [
       {
