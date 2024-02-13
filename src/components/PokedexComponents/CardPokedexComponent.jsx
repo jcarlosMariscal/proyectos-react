@@ -15,7 +15,7 @@ export const CardPokedexComponent = ({ pokemon }) => {
     other.dream_world.front_default ||
     other["official-artwork"].front_default ||
     other.home.front_default ||
-    "../../src/assets/img/pokeballNotFound.png";
+    "image/pokeballNotFound.png";
   const imageFound =
     other.dream_world.front_default ||
     other["official-artwork"].front_default ||

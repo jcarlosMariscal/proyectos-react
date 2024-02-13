@@ -14,11 +14,7 @@ export const IconsCardComponent = ({ icons, image, cardSize }) => {
         ))}
       </div>
       <div className="hidden sm:flex items-center">
-        <img
-          src={`src/assets/img/${image}`}
-          alt="Image 1"
-          className={`${imgSize}`}
-        />
+        <img src={`image/${image}`} alt="Image 1" className={`${imgSize}`} />
       </div>
     </div>
   );

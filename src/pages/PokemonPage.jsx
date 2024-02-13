@@ -60,7 +60,7 @@ export const PokemonPage = () => {
                 pokemon.sprites.other.dream_world.front_default ||
                 pokemon.sprites.other["official-artwork"].front_default ||
                 pokemon.sprites.other.home.front_default ||
-                "../../src/assets/img/pokeballNotFound.png"
+                "image/pokeballNotFound.png"
               }
               alt={`Pokemon ${pokemon.name}`}
             />
